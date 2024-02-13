@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Id Card Text Extraction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='test.css') }}">
+</head>
+
+<body>
+    <div id="profile-container">
+        <h2>Upload Id Card to extract details</h2>
+        <form id="profile-form">
+            <input type="file" id="file-input" accept="image/*" title="Id Card" value="Id card" />
+
+        </form>
+
+        <div id="uploaded-image-container">
+            <h3>Uploaded Image:</h3>
+            <img id="uploaded-image" src="" alt="Please Upload an image">
+
+        </div>
+        <div>
+            <button type="button" id="upload-btn">Extract Details</button>
+            <pre id="result-text" class="result">
+            </pre>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='test.js') }}"></script>
+    <script>
+        const data = {
+            "name": "John Doe",
+            "age": 30,
+            "city": "New York"
+        };
+        document.getElementById("result-text").innerHTML = JSON.stringify(data, undefined, 2);
+    </script>
+</body>
+
+</html>
